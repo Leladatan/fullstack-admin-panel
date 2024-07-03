@@ -1,0 +1,12 @@
+.select {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  & > label {
+    display: flex;
+    font-size: 16px;
+    flex-direction: column;
+    gap: 5px;
+  }
+}

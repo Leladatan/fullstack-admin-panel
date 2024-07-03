@@ -1,0 +1,59 @@
+.sidebar {
+  padding-right: 30px;
+  height: 100%;
+  position: fixed !important;
+  background-color: #f5f5f5 !important;
+
+  &-link_active {
+    color: #0086C9 !important;
+    background-color: #B9E6FE !important;
+
+    & > svg > path {
+      stroke: #0086C9;
+    }
+  }
+
+  &-box {
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #fff !important;
+
+    &-header {
+      background-color: #fff !important;
+      border-radius: 0 0 20px 20px;
+      & > h1 {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+.ant-layout-content {
+  display: flex;
+}
+
+.ant-layout-sider-children {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 30px;
+}
+
+.ant-menu {
+  border: 0 !important;
+}
+
+.ant-menu-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+}
+
+.ant-menu-title-content {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+}
+
+.menu-label {
+  font-size: 20px;
+}

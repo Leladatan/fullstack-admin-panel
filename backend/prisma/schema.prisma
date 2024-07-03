@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Настройка db на основе postgresql, по url из .env - DATABASE_URL
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Создание модели пользователя
+
+model User {
+  id         Int    @id @default(autoincrement())
+  surname    String
+  name       String
+  patronymic String
+  username   String @unique
+  email      String @unique
+
+  // Связь с постами пользователя
+
+  posts Post[] @relation(name: "PostsToUser")
+
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
+
+  @@index([id])
+  @@index([username])
+  @@index([email])
+}
+
+model Post {
+  id          Int    @id @default(autoincrement())
+  title       String
+  description String
+
+  // Связь поста с пользователем
+
+  userId Int
+  user   User @relation(name: "PostsToUser", fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
+
+  @@index([id])
+  @@index([userId])
+}
